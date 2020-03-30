@@ -4,6 +4,7 @@ from flask_graphql import GraphQLView
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_graphql import GraphQLView
+from flask_cors import CORS
 
 """
 Extensions
@@ -24,6 +25,7 @@ def create_app():
 
     db.init_app(app)
     migrate.init_app(app, db)
+    cors = CORS(app, resources={r"*": {"origins": app.config['CORS']}})
     
     # noinspection PyTypeChecker
     schema_query = graphene.Schema(query=Query)

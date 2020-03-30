@@ -40,6 +40,8 @@ flask db migrate -m "init"
 flask db upgrade
 flask run
 ```
+Once setup, inject test data into the database using the following command
+(venv)`python seed.py`
 
 ## Example
 On the following url in the browser
@@ -57,3 +59,7 @@ Enter the following query
   }
 }
 ```
+
+## Notes Secion
+In GraphQL what's the meaning of “edges” and “node”?
+https://stackoverflow.com/questions/42622912/in-graphql-whats-the-meaning-of-edges-and-node
