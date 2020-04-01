@@ -39,8 +39,8 @@ with app.app_context():
     post1.author = user1
 
     post2 = Post()
-    post2.title = "Music is awesome"
-    post2.body = "Today I performed in front of thousands of people"
+    post2.title = "You don't say"
+    post2.body = "People these days..."
     post2.author = user2
 
     post3 = Post()

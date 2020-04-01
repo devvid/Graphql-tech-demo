@@ -8,6 +8,7 @@ export type Author = {
     id: number;
     title: string;
     body: string;
+    author: Author
   }
 
   export type Node = {

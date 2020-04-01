@@ -1,3 +1,6 @@
-<h1>Post {{id}}</h1>
-<p>This is a test</p>
-<a routerLink="">Home page</a>
+<div *ngIf="post !== undefined">
+<h1>{{post.title}}</h1>
+<p>by {{post.author.name}}</p>
+<p>{{post.body}}</p>
+</div>
+<a routerLink="/">Home page</a>

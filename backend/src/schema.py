@@ -17,6 +17,8 @@ class UserObject(SQLAlchemyObjectType):
 
 class Query(graphene.ObjectType):
     node = graphene.relay.Node.Field()
+    post = graphene.relay.Node.Field(PostObject)
+    user = graphene.relay.Node.Field(UserObject)
     all_posts = SQLAlchemyConnectionField(PostObject)
     all_users = SQLAlchemyConnectionField(UserObject)
 
