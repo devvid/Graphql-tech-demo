@@ -56,6 +56,14 @@ export class PostComponent implements OnInit, OnDestroy  {
             id
             name
           }
+          history{
+            edges{
+              node{
+                id
+                ipAddress
+              }
+            }
+          }
         }
       }
       `,

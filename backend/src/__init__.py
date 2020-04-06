@@ -51,4 +51,4 @@ def create_app():
 
     return app
 
-from src.models import User, Post
+from src.models import User, Post, ViewHistory

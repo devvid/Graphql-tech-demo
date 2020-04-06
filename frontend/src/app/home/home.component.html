@@ -1,6 +1,7 @@
 <h1>Posts</h1>
-<ul>
-    <li *ngFor="let post of posts">
-      <a [routerLink]="['/post', post.node.id]">{{post.node.title}}</a> <i>by</i> {{post.node.author.name}}
-    </li>
-</ul>
+
+<div class="list-group">
+  <div *ngFor="let post of posts">
+    <a [routerLink]="['/post', post.node.id]" class="list-group-item list-group-item-action">{{post.node.title}} <i>by</i> {{post.node.author.name}}</a> 
+  </div>
+</div>

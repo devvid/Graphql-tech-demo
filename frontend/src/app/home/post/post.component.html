@@ -3,4 +3,18 @@
 <p>by {{post.author.name}}</p>
 <p>{{post.body}}</p>
 </div>
+
+<div *ngIf="post == undefined">
+    Loading...
+</div>
+
+<hr class="my-4">
 <a routerLink="/">Home page</a>
+<hr class="my-4">
+
+<div *ngIf="post !== undefined">
+    {{post.history.edges.length}} visitors have viewed this post.
+    <div *ngFor="let edge of post.history.edges">
+        {{edge.node.ipAddress}}
+    </div>
+</div>

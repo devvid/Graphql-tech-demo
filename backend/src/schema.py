@@ -1,6 +1,6 @@
 import graphene
 from graphene_sqlalchemy import SQLAlchemyObjectType, SQLAlchemyConnectionField
-from src.models import User, Post
+from src.models import User, Post, ViewHistory
 
 # Objects Schema
 class PostObject(SQLAlchemyObjectType):
@@ -14,6 +14,11 @@ class UserObject(SQLAlchemyObjectType):
         model = User
         interfaces = (graphene.relay.Node,)
 
+class ViewHistoryObject(SQLAlchemyObjectType):
+    class Meta:
+        model = ViewHistory
+        interfaces = (graphene.relay.Node,)
+
 
 class Query(graphene.ObjectType):
     node = graphene.relay.Node.Field()
@@ -21,6 +26,7 @@ class Query(graphene.ObjectType):
     user = graphene.relay.Node.Field(UserObject)
     all_posts = SQLAlchemyConnectionField(PostObject)
     all_users = SQLAlchemyConnectionField(UserObject)
+    all_view_history = SQLAlchemyConnectionField(ViewHistoryObject)
 
 # Mutation Objects Schema
 class CreatePost(graphene.Mutation):
