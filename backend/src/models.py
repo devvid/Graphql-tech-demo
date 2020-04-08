@@ -2,12 +2,13 @@
 from sqlalchemy import *
 from src import db
 from datetime import datetime 
+import json
 
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(256))
-    email = db.Column(db.String(256), index=True, unique=True)  # index => should not be duplicate
+    email = db.Column(db.String(256), index=True, unique=True)
     posts = db.relationship('Post', backref='author')
 
     def __repr__(self):
@@ -24,6 +25,7 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Post %r>' % self.title
+
 
 class ViewHistory(db.Model):
     __tablename__ = 'view_history'

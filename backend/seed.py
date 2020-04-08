@@ -7,8 +7,8 @@ app = create_app()
 
 from src import db, User, Post, ViewHistory
 
-def create_history(db, post):
-    for i in range(0, 50000):
+def create_history(db, post, x=1):
+    for i in range(0, int(50000/x)):
         hist = ViewHistory()
         hist.ip_address = str(IPv4Address(getrandbits(32)))
         hist.post = post
@@ -47,31 +47,31 @@ with app.app_context():
     post1.title = "Music is awesome"
     post1.body = "Today I performed in front of thousands of people"
     post1.author = user1
-    create_history(db, post1)
+    create_history(db, post1, 5)
 
     post2 = Post()
     post2.title = "You don't say"
     post2.body = "People these days..."
     post2.author = user2
-    create_history(db, post2)
+    create_history(db, post2, 4)
 
     post3 = Post()
     post3.title = "Not happy"
     post3.body = "Just Googled 'meme' and my face came up"
     post3.author = user3
-    create_history(db, post3)
+    create_history(db, post3, 3)
 
     post4 = Post()
     post4.title = "01110010"
     post4.body = "I'll be back"
     post4.author = user4
-    create_history(db, post4)
+    create_history(db, post4, 2)
 
     post5 = Post()
     post5.title = "Stay Strong"
     post5.body = "I just benched 400kg the other day, too easy"
     post5.author = user4
-    create_history(db, post5)
+    create_history(db, post5, 1)
 
     post6 = Post()
     post6.title = "Interesting day"
